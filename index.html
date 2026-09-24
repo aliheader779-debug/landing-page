@@ -18,7 +18,6 @@
 
     <style>
         :root {
-            /* Premium Neon Color Scheme */
             --primary: #8a2be2; 
             --secondary: #00e5ff; 
             --accent: #b22cff; 
@@ -26,10 +25,7 @@
             --glass-bg: rgba(255, 255, 255, 0.03); 
         }
 
-        /* Anti-Lag & Smooth Scrolling Optimization */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -39,12 +35,9 @@
             -webkit-font-smoothing: antialiased; 
         }
 
-        .text-silver {
-            color: #cfcfd6 !important; 
-            line-height: 1.6;
-        }
+        .text-silver { color: #cfcfd6 !important; line-height: 1.6; }
 
-        /* Pill Type Header */
+        /* Header */
         .glass-header {
             background: rgba(10, 10, 15, 0.7) !important;
             backdrop-filter: blur(15px);
@@ -64,12 +57,11 @@
             transition: all 0.3s ease;
             will-change: transform, background-color;
         }
-        
         .navbar-brand { font-weight: 700; color: #fff !important; letter-spacing: 2px; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
         .nav-link { color: #d1d1d1 !important; font-weight: 400; transition: color 0.3s ease; margin: 0 10px; }
         .nav-link:hover { color: var(--secondary) !important; text-shadow: 0 0 10px var(--secondary); }
         
-        /* Gradient Button with Smooth Hover */
+        /* Buttons & Text */
         .btn-gradient {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
@@ -82,11 +74,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             will-change: transform; 
         }
-        .btn-gradient:hover {
-            transform: translateY(-2px);
-            color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.6);
-        }
+        .btn-gradient:hover { transform: translateY(-2px); color: #fff; box-shadow: 0 6px 20px rgba(0, 229, 255, 0.6); }
 
         .text-gradient {
             background: linear-gradient(90deg, var(--secondary), #fff, var(--primary));
@@ -95,70 +83,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        @keyframes gradientTextFlow {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
+        @keyframes gradientTextFlow { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
 
-        /* Hero Background */
-        .hero { 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            position: relative; 
-            overflow: hidden;
-            padding-top: 100px;
-        }
-
-        .hero::before, .hero::after {
-            content: '';
-            position: absolute;
-            width: 40vw;
-            height: 40vw;
-            max-width: 500px;
-            max-height: 500px;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            animation: floatGlow 12s infinite alternate ease-in-out;
-            pointer-events: none;
-            will-change: transform;
-        }
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; padding-top: 100px; }
+        .hero::before, .hero::after { content: ''; position: absolute; width: 40vw; height: 40vw; max-width: 500px; max-height: 500px; border-radius: 50%; filter: blur(80px); z-index: 0; animation: floatGlow 12s infinite alternate ease-in-out; pointer-events: none; will-change: transform; }
         .hero::before { background: rgba(138, 43, 226, 0.2); top: 10%; left: -5%; }
         .hero::after { background: rgba(0, 229, 255, 0.15); bottom: 10%; right: -5%; animation-delay: -6s; }
-
-        @keyframes floatGlow {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 30px) scale(1.1); }
-        }
-
+        @keyframes floatGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, 30px) scale(1.1); } }
         .hero-content { position: relative; z-index: 2; }
-        
-        /* Responsive Typography */
-        .hero h1 { 
-            font-size: clamp(2.5rem, 5vw, 4.8rem); 
-            font-weight: 700; 
-            margin-bottom: 25px; 
-            line-height: 1.2; 
-            letter-spacing: -1px; 
-        }
-        
-        .badge-premium {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #fff;
-            padding: 8px 25px;
-            border-radius: 50px;
-            display: inline-block;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            backdrop-filter: blur(5px);
-        }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); font-weight: 700; margin-bottom: 25px; line-height: 1.2; letter-spacing: -1px; }
+        .badge-premium { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 8px 25px; border-radius: 50px; display: inline-block; font-size: 0.95rem; font-weight: 600; letter-spacing: 1px; backdrop-filter: blur(5px); }
 
-        /* Smooth Glass Cards */
+        /* Glass Cards */
         .glass-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
             backdrop-filter: blur(15px);
@@ -173,85 +110,25 @@
             will-change: transform, box-shadow;
             transform: translateZ(0); 
         }
-        .glass-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 25px rgba(138, 43, 226, 0.2);
-            border-color: rgba(255, 255, 255, 0.25);
-        }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 25px rgba(138, 43, 226, 0.2); border-color: rgba(255, 255, 255, 0.25); }
 
-        /* Circular Neon Icons */
-        .neon-circle-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-            will-change: transform;
-        }
-        .glass-card:hover .neon-circle-icon {
-            transform: scale(1.08);
-            box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
-        }
-        .neon-circle-icon i {
-            color: #fff !important;
-            font-size: 1.8rem;
-        }
+        .neon-circle-icon { display: inline-flex; align-items: center; justify-content: center; width: 70px; height: 70px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 0 20px rgba(138, 43, 226, 0.4); margin-bottom: 20px; transition: transform 0.3s ease; will-change: transform; }
+        .glass-card:hover .neon-circle-icon { transform: scale(1.08); box-shadow: 0 0 25px rgba(0, 229, 255, 0.6); }
+        .neon-circle-icon i { color: #fff !important; font-size: 1.8rem; }
 
-        /* Animated Gradient Border for Best Plan */
-        .premium-border-wrap {
-            padding: 2px; 
-            border-radius: 27px; 
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-            background-size: 300% 300%;
-            animation: flowingBorder 5s ease infinite;
-            height: 100%;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
-        }
+        .premium-border-wrap { padding: 2px; border-radius: 27px; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary)); background-size: 300% 300%; animation: flowingBorder 5s ease infinite; height: 100%; box-shadow: 0 0 20px rgba(138, 43, 226, 0.3); }
         @keyframes flowingBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
         section { padding: 80px 0; position: relative; z-index: 2; }
         .section-alt { background-color: rgba(5, 5, 8, 0.8); }
         .section-title { text-align: center; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 50px; color: #fff; }
 
-        /* Floating WhatsApp Button */
-        .floating-wa {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            z-index: 999;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
-            will-change: transform;
-        }
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 999; transition: transform 0.3s ease; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5); will-change: transform; }
         .floating-wa:hover { transform: scale(1.1); color: white; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.7); }
 
-        /* Tables & Accordions Optimized */
+        /* Tables & Accordions */
         .table-glass { color: #fff; background: transparent; }
-        .table-glass th, .table-glass td { 
-            color: #fff !important; 
-            background: rgba(255, 255, 255, 0.02); 
-            border-color: rgba(255,255,255,0.1); 
-            padding: 15px; 
-            text-align: center; 
-            vertical-align: middle; 
-            transition: background 0.3s ease;
-        }
+        .table-glass th, .table-glass td { color: #fff !important; background: rgba(255, 255, 255, 0.02); border-color: rgba(255,255,255,0.1); padding: 15px; text-align: center; vertical-align: middle; transition: background 0.3s ease; }
         .table-glass tbody tr:hover td { background: rgba(0, 229, 255, 0.1); }
         
         .accordion-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 12px; border-radius: 12px !important; overflow: hidden; }
@@ -260,33 +137,19 @@
         .accordion-button::after { filter: invert(1); }
         .accordion-body { padding: 18px; line-height: 1.6; color: #cfcfd6; }
 
-        /* Form Controls */
         .form-control { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 12px; border-radius: 10px; }
         .form-control:focus { background: rgba(255,255,255,0.08); border-color: var(--secondary); box-shadow: 0 0 10px rgba(0, 229, 255, 0.3); color: #fff; }
         .modal-content { background: #0a0a0f; border: 1px solid rgba(255,255,255,0.15); border-radius: 15px; }
 
-        /* RED ALERT BOX (NEW UPDATED CSS) */
-        .alert-note { 
-            background: rgba(220, 53, 69, 0.12); /* Light red background */
-            border: 2px solid #ff3c3c; /* Full prominent red border */
-            padding: 20px; 
-            border-radius: 12px; 
-            color: #fff; 
-            margin-top: 40px; 
-            text-align: center; 
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(220, 53, 69, 0.25); /* Glowing red shadow */
-        }
-        .alert-note strong {
-            color: #ff3c3c; /* Bright red text for the bold part */
-            font-size: 1.1rem;
-        }
-
+        .alert-note { background: rgba(220, 53, 69, 0.12); border: 2px solid #ff3c3c; padding: 20px; border-radius: 12px; color: #fff; margin-top: 40px; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(220, 53, 69, 0.25); }
+        .alert-note strong { color: #ff3c3c; font-size: 1.1rem; }
+        
+        /* Swiper Fixes */
+        .swiper-slide { height: auto; }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <nav class="navbar navbar-expand-lg glass-header">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AR SERVICES</a>
@@ -297,7 +160,6 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#how-it-works">Order Guide</a></li>
-                    <!-- Updated Navbar with Story Link -->
                     <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
@@ -309,7 +171,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="badge-premium mb-4" data-aos="fade-up">🚀 Pakistan's #1 Choice for Video Editors</div>
@@ -325,7 +186,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="section-alt">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Our <span class="text-gradient">Services</span></h2>
@@ -355,7 +215,6 @@
         </div>
     </section>
 
-    <!-- Comparison -->
     <section id="comparison">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Free vs <span class="text-gradient">CapCut Pro</span></h2>
@@ -379,7 +238,6 @@
         </div>
     </section>
 
-    <!-- How it Works / Order Process -->
     <section id="how-it-works" class="section-alt">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">How to <span class="text-gradient">Order?</span></h2>
@@ -409,7 +267,6 @@
         </div>
     </section>
     
-    <!-- NEW: Brand Story Section -->
     <section id="about">
         <div class="container text-center">
             <h2 class="section-title" data-aos="fade-up">Our <span class="text-gradient">Story</span></h2>
@@ -423,7 +280,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="features" class="section-alt">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Why Upgrade to <span class="text-gradient">Pro?</span></h2>
@@ -450,13 +306,11 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section id="pricing">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Choose Your <span class="text-gradient">Plan</span></h2>
             <div class="row justify-content-center g-4">
                 
-                <!-- Single Device Plan -->
                 <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="100">
                     <div class="glass-card text-center d-flex flex-column h-100">
                         <h3 class="mb-1 fw-bold text-white">Single Device</h3>
@@ -471,7 +325,6 @@
                     </div>
                 </div>
                 
-                <!-- Dual Device Plan -->
                 <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="200">
                     <div class="premium-border-wrap">
                         <div class="glass-card text-center d-flex flex-column h-100" style="border: none; background: rgba(10,10,15,0.9);">
@@ -490,41 +343,56 @@
                 </div>
             </div>
             
-            <!-- NEW UPDATED RED ALERT BOX -->
-            <div class="alert-note mx-auto" data-aos="fade-up" style="max-width: 800px;">
-                <strong><i class="fa-solid fa-triangle-exclamation me-2"></i> IMPORTANT ALERT:</strong><br> 
+            <div class="alert-note mx-auto" data-aos="fade-up">
+                <strong><i class="fa-solid fa-triangle-exclamation me-2"></i> IMPORTANT ALERT:</strong><br>
                 For the Single Device (Shared) Plan, you are strictly allowed <strong>1 device login</strong>. If an issue of "Maximum Attempts Reached" occurs due to rule violation, <u>no replacement or refund will be provided</u>.
             </div>
         </div>
     </section>
 
-    <!-- Reviews -->
+    <!-- Reviews (Google Drive Direct Fetching Fix for CodePen & GitHub) -->
     <section id="reviews" class="section-alt">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">What <span class="text-gradient">Creators</span> Say</h2>
             <div class="swiper reviewSwiper pb-5" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
+                    
                     <div class="swiper-slide h-auto">
-                        <div class="glass-card text-center d-flex flex-column h-100">
-                            <div class="neon-circle-icon mx-auto mb-3" style="width: 50px; height: 50px;"><i class="fa-solid fa-quote-left fs-6"></i></div>
-                            <p class="mb-4 text-silver">"Got the dual plan for me and my editor. Works perfectly and AR Services delivered credentials in just 5 minutes!"</p>
-                            <h5 class="mt-auto fw-bold text-white">- Ali H.</h5>
+                        <div class="glass-card text-center d-flex flex-column h-100 p-0 overflow-hidden">
+                            <img src="https://lh3.googleusercontent.com/d/14iyJdk9aZbVwsZO64Xy_Ax_4q5TPlhIq" alt="Customer Review 1" class="img-fluid" style="object-fit: contain; width: 100%; height: auto; border-radius: 15px;">
                         </div>
                     </div>
+                    
                     <div class="swiper-slide h-auto">
-                        <div class="glass-card text-center d-flex flex-column h-100">
-                            <div class="neon-circle-icon mx-auto mb-3" style="width: 50px; height: 50px;"><i class="fa-solid fa-quote-left fs-6"></i></div>
-                            <p class="mb-4 text-silver">"The single device plan is great on a budget. Followed the rules and haven't faced a single issue. Highly recommended."</p>
-                            <h5 class="mt-auto fw-bold text-white">- Sara Khan</h5>
+                        <div class="glass-card text-center d-flex flex-column h-100 p-0 overflow-hidden">
+                            <img src="https://lh3.googleusercontent.com/d/1mLa7bIdkC5fXqBPLCijV09wBgMhA9KoX" alt="Customer Review 2" class="img-fluid" style="object-fit: contain; width: 100%; height: auto; border-radius: 15px;">
                         </div>
                     </div>
+
                     <div class="swiper-slide h-auto">
-                        <div class="glass-card text-center d-flex flex-column h-100">
-                            <div class="neon-circle-icon mx-auto mb-3" style="width: 50px; height: 50px;"><i class="fa-solid fa-quote-left fs-6"></i></div>
-                            <p class="mb-4 text-silver">"Trusted seller. The auto-captions and pro effects are game changers for my reels. Best service ever."</p>
-                            <h5 class="mt-auto fw-bold text-white">- Usman R.</h5>
+                        <div class="glass-card text-center d-flex flex-column h-100 p-0 overflow-hidden">
+                            <img src="https://lh3.googleusercontent.com/d/134vpoZXKyvxKaBSN_rp0KmUPTr0PXE39" alt="Customer Review 3" class="img-fluid" style="object-fit: contain; width: 100%; height: auto; border-radius: 15px;">
                         </div>
                     </div>
+
+                    <div class="swiper-slide h-auto">
+                        <div class="glass-card text-center d-flex flex-column h-100 p-0 overflow-hidden">
+                            <img src="https://lh3.googleusercontent.com/d/12F8_obd3odiTZo81zZVh44x06rvkuYXF" alt="Customer Review 4" class="img-fluid" style="object-fit: contain; width: 100%; height: auto; border-radius: 15px;">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide h-auto">
+                        <div class="glass-card text-center d-flex flex-column h-100 p-0 overflow-hidden">
+                            <img src="https://lh3.googleusercontent.com/d/1JA2dwhqgOQ3hs4r7O3ZNua8b2wFNpvhN" alt="Customer Review 5" class="img-fluid" style="object-fit: contain; width: 100%; height: auto; border-radius: 15px;">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide h-auto">
+                        <div class="glass-card text-center d-flex flex-column h-100 p-0 overflow-hidden">
+                            <img src="https://lh3.googleusercontent.com/d/1QVFqPhaedPPicVMzELgOB0AQ-sZBM0mq" alt="Customer Review 6" class="img-fluid" style="object-fit: contain; width: 100%; height: auto; border-radius: 15px;">
+                        </div>
+                    </div>
+
                 </div>
                 <div class="swiper-pagination mt-4 position-relative"></div>
             </div>
@@ -613,7 +481,7 @@
         </div>
     </div>
 
-    <!-- Scripts (Defer added to all scripts for faster initial load to prevent bugs) -->
+    <!-- Scripts (Defer added to all scripts for faster initial load) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
