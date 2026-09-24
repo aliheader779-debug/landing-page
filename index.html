@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR SERVICES - Premium CapCut Pro</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Premium Neon Color Scheme */
+            --primary: #8a2be2; 
+            --secondary: #00e5ff; 
+            --accent: #b22cff; 
+            --bg-dark: #050508; 
+            --glass-bg: rgba(255, 255, 255, 0.03); 
+        }
+
+        /* Anti-Lag & Smooth Scrolling Optimization */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        .text-silver {
+            color: #cfcfd6 !important; 
+            line-height: 1.6;
+        }
+
+        /* Pill Type Header */
+        .glass-header {
+            background: rgba(10, 10, 15, 0.7) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px; 
+            padding: 10px 25px;
+            margin-top: 20px;
+            width: 95%;
+            max-width: 1200px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: fixed;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+            will-change: transform, background-color;
+        }
+        
+        .navbar-brand { font-weight: 700; color: #fff !important; letter-spacing: 2px; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        .nav-link { color: #d1d1d1 !important; font-weight: 400; transition: color 0.3s ease; margin: 0 10px; }
+        .nav-link:hover { color: var(--secondary) !important; text-shadow: 0 0 10px var(--secondary); }
+        
+        /* Gradient Button with Smooth Hover */
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform; 
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.6);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--secondary), #fff, var(--primary));
+            background-size: 200% auto;
+            animation: gradientTextFlow 5s linear infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes gradientTextFlow {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Hero Background */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            position: relative; 
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            max-width: 500px;
+            max-height: 500px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            animation: floatGlow 12s infinite alternate ease-in-out;
+            pointer-events: none;
+            will-change: transform;
+        }
+        .hero::before { background: rgba(138, 43, 226, 0.2); top: 10%; left: -5%; }
+        .hero::after { background: rgba(0, 229, 255, 0.15); bottom: 10%; right: -5%; animation-delay: -6s; }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 30px) scale(1.1); }
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+        
+        /* Responsive Typography */
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4.8rem); 
+            font-weight: 700; 
+            margin-bottom: 25px; 
+            line-height: 1.2; 
+            letter-spacing: -1px; 
+        }
+        
+        .badge-premium {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Smooth Glass Cards */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px; 
+            padding: 35px 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            will-change: transform, box-shadow;
+            transform: translateZ(0); 
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 25px rgba(138, 43, 226, 0.2);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Circular Neon Icons */
+        .neon-circle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+        .glass-card:hover .neon-circle-icon {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+        }
+        .neon-circle-icon i {
+            color: #fff !important;
+            font-size: 1.8rem;
+        }
+
+        /* Animated Gradient Border for Best Plan */
+        .premium-border-wrap {
+            padding: 2px; 
+            border-radius: 27px; 
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+            background-size: 300% 300%;
+            animation: flowingBorder 5s ease infinite;
+            height: 100%;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+        @keyframes flowingBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        section { padding: 80px 0; position: relative; z-index: 2; }
+        .section-alt { background-color: rgba(5, 5, 8, 0.8); }
+        .section-title { text-align: center; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 50px; color: #fff; }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            z-index: 999;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
+            will-change: transform;
+        }
+        .floating-wa:hover { transform: scale(1.1); color: white; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.7); }
+
+        /* Tables & Accordions Optimized */
+        .table-glass { color: #fff; background: transparent; }
+        .table-glass th, .table-glass td { 
+            color: #fff !important; 
+            background: rgba(255, 255, 255, 0.02); 
+            border-color: rgba(255,255,255,0.1); 
+            padding: 15px; 
+            text-align: center; 
+            vertical-align: middle; 
+            transition: background 0.3s ease;
+        }
+        .table-glass tbody tr:hover td { background: rgba(0, 229, 255, 0.1); }
+        
+        .accordion-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 12px; border-radius: 12px !important; overflow: hidden; }
+        .accordion-button { background: transparent; color: #fff; box-shadow: none !important; font-weight: 600; padding: 18px; }
+        .accordion-button:not(.collapsed) { background: rgba(138, 43, 226, 0.1); color: #fff; }
+        .accordion-button::after { filter: invert(1); }
+        .accordion-body { padding: 18px; line-height: 1.6; color: #cfcfd6; }
+
+        /* Form Controls */
+        .form-control { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 12px; border-radius: 10px; }
+        .form-control:focus { background: rgba(255,255,255,0.08); border-color: var(--secondary); box-shadow: 0 0 10px rgba(0, 229, 255, 0.3); color: #fff; }
+        .modal-content { background: #0a0a0f; border: 1px solid rgba(255,255,255,0.15); border-radius: 15px; }
+
+        /* RED ALERT BOX (NEW UPDATED CSS) */
+        .alert-note { 
+            background: rgba(220, 53, 69, 0.12); /* Light red background */
+            border: 2px solid #ff3c3c; /* Full prominent red border */
+            padding: 20px; 
+            border-radius: 12px; 
+            color: #fff; 
+            margin-top: 40px; 
+            text-align: center; 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(220, 53, 69, 0.25); /* Glowing red shadow */
+        }
+        .alert-note strong {
+            color: #ff3c3c; /* Bright red text for the bold part */
+            font-size: 1.1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg glass-header">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AR SERVICES</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars text-white fs-4"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">Order Guide</a></li>
+                    <!-- Updated Navbar with Story Link -->
+                    <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <button class="btn btn-gradient" data-bs-toggle="modal" data-bs-target="#whatsappModal">Buy Now</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="badge-premium mb-4" data-aos="fade-up">🚀 Pakistan's #1 Choice for Video Editors</div>
+            <h1 data-aos="fade-up" data-aos-delay="100">Unlock <span class="text-gradient">Premium</span> Editing Power</h1>
+            
+            <p class="lead text-silver mb-5 mx-auto" style="max-width: 680px;" data-aos="fade-up" data-aos-delay="200">
+                Get CapCut Pro Subscriptions at unbeatable prices. Elevate your videos with professional effects, auto-captions, and seamless cloud storage today.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="300">
+                <button class="btn btn-gradient px-4 py-3 fs-5" data-bs-toggle="modal" data-bs-target="#whatsappModal">Get Started Now</button>
+                <a href="#pricing" class="btn btn-outline-light px-4 py-3 fs-5 rounded-pill border-2" style="background: rgba(255,255,255,0.05);">View Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our <span class="text-gradient">Services</span></h2>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card text-center">
+                        <div class="neon-circle-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h4 class="fw-bold">Instant Access</h4>
+                        <p class="text-silver mt-3">Get your CapCut Pro account details immediately via WhatsApp after order confirmation.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card text-center">
+                        <div class="neon-circle-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4 class="fw-bold">Secure & Trusted</h4>
+                        <p class="text-silver mt-3">100% genuine subscriptions with transparent rules and reliable customer support.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mx-auto" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center">
+                        <div class="neon-circle-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h4 class="fw-bold">Premium Support</h4>
+                        <p class="text-silver mt-3">We are here to assist you with any login issues or subscription-related queries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section id="comparison">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Free vs <span class="text-gradient">CapCut Pro</span></h2>
+            <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
+                <table class="table table-glass table-bordered mb-0">
+                    <thead>
+                        <tr>
+                            <th class="py-3">Features</th>
+                            <th class="py-3">Free Version</th>
+                            <th class="py-3">CapCut Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Premium Transitions</td><td><i class="fa-solid fa-xmark text-danger fs-5"></i></td><td><i class="fa-solid fa-check text-success fs-5"></i></td></tr>
+                        <tr><td>Cloud Storage</td><td>Limited</td><td><i class="fa-solid fa-check text-success fs-5"></i> 100GB</td></tr>
+                        <tr><td>Advanced Filters & Effects</td><td><i class="fa-solid fa-xmark text-danger fs-5"></i></td><td><i class="fa-solid fa-check text-success fs-5"></i></td></tr>
+                        <tr><td>Pro Templates (No Watermark)</td><td><i class="fa-solid fa-xmark text-danger fs-5"></i></td><td><i class="fa-solid fa-check text-success fs-5"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works / Order Process -->
+    <section id="how-it-works" class="section-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">How to <span class="text-gradient">Order?</span></h2>
+            <div class="row g-4">
+                <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card text-center">
+                        <div class="neon-circle-icon mx-auto text-white fs-3 fw-bold">1</div>
+                        <h4 class="fw-bold mt-2">Fill the Form</h4>
+                        <p class="text-silver mt-3">Select your desired plan and fill out the quick order form to proceed.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card text-center">
+                        <div class="neon-circle-icon mx-auto text-white fs-3 fw-bold">2</div>
+                        <h4 class="fw-bold mt-2">Pay on WhatsApp</h4>
+                        <p class="text-silver mt-3">You will be redirected to WhatsApp to securely complete your payment.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center">
+                        <div class="neon-circle-icon mx-auto text-white fs-3 fw-bold">3</div>
+                        <h4 class="fw-bold mt-2">Get Subscription</h4>
+                        <p class="text-silver mt-3">Receive your premium CapCut Pro login credentials instantly in the chat!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- NEW: Brand Story Section -->
+    <section id="about">
+        <div class="container text-center">
+            <h2 class="section-title" data-aos="fade-up">Our <span class="text-gradient">Story</span></h2>
+            <div class="glass-card mx-auto" style="max-width: 850px;" data-aos="fade-up" data-aos-delay="100">
+                <div class="neon-circle-icon mx-auto mb-4" style="width: 60px; height: 60px;"><i class="fa-solid fa-bullseye fs-4"></i></div>
+                <h3 class="fw-bold mb-3 text-white">Empowering Digital Creators</h3>
+                <p class="text-silver fs-5 lh-lg mb-0">
+                    At AR SERVICES, our journey is rooted in a passion for digital marketing and content creation. We understand the high demands modern video editors and agencies face daily. That is why we specialize in providing seamless, reliable access to premium software subscriptions and cutting-edge digital tools like CapCut Pro. Our core mission is to empower creators with the premium resources they need to produce high-quality videos and ads, all backed by our trusted support.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why Upgrade to <span class="text-gradient">Pro?</span></h2>
+            <div class="row g-4 align-items-center">
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="neon-circle-icon me-3 mb-0" style="width: 50px; height: 50px;"><i class="fa-solid fa-wand-magic-sparkles fs-6"></i></div>
+                            <h4 class="mb-0 fw-bold">Professional Tools</h4>
+                        </div>
+                        <p class="text-silver mt-2 mb-0">Unlock object tracking, smart background removal, and auto-captions with the highest accuracy.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="neon-circle-icon me-3 mb-0" style="width: 50px; height: 50px;"><i class="fa-solid fa-layer-group fs-6"></i></div>
+                            <h4 class="mb-0 fw-bold">Multi-Track Editing</h4>
+                        </div>
+                        <p class="text-silver mt-2 mb-0">Handle complex video timelines effortlessly without any performance drops or lag.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Choose Your <span class="text-gradient">Plan</span></h2>
+            <div class="row justify-content-center g-4">
+                
+                <!-- Single Device Plan -->
+                <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Single Device</h3>
+                        <p class="text-silver">Semi-Private / Shared Account</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">Rs. 400</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-4 text-silver">
+                            <li class="mb-3"><i class="fa-solid fa-check me-3 text-info"></i> Login on 1 Device Only</li>
+                            <li class="mb-3"><i class="fa-solid fa-check me-3 text-info"></i> Shared between 2 users</li>
+                            <li class="mb-3"><i class="fa-solid fa-check me-3 text-info"></i> All Pro Features Unlocked</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Single Device - Rs 400')">Select Single Plan</button>
+                    </div>
+                </div>
+                
+                <!-- Dual Device Plan -->
+                <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="premium-border-wrap">
+                        <div class="glass-card text-center d-flex flex-column h-100" style="border: none; background: rgba(10,10,15,0.9);">
+                            <div class="position-absolute top-0 start-50 translate-middle badge rounded-pill px-3 py-2 text-white shadow-lg" style="background: linear-gradient(90deg, var(--primary), var(--secondary)); font-size: 0.9rem;">Best Value</div>
+                            <h3 class="mb-1 mt-2 fw-bold text-white">Dual Device</h3>
+                            <p class="text-silver">Full Access Account</p>
+                            <h2 class="my-4 text-gradient fs-1 fw-bold">Rs. 700</h2>
+                            <ul class="list-unstyled text-start mb-auto ms-4 text-silver">
+                                <li class="mb-3"><i class="fa-solid fa-check me-3 text-info"></i> Login on 2 Devices</li>
+                                <li class="mb-3"><i class="fa-solid fa-check me-3 text-info"></i> Complete Privacy</li>
+                                <li class="mb-3"><i class="fa-solid fa-check me-3 text-info"></i> All Pro Features Unlocked</li>
+                            </ul>
+                            <button class="btn btn-gradient w-100 mt-4" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Dual Device - Rs 700')">Select Dual Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NEW UPDATED RED ALERT BOX -->
+            <div class="alert-note mx-auto" data-aos="fade-up" style="max-width: 800px;">
+                <strong><i class="fa-solid fa-triangle-exclamation me-2"></i> IMPORTANT ALERT:</strong><br> 
+                For the Single Device (Shared) Plan, you are strictly allowed <strong>1 device login</strong>. If an issue of "Maximum Attempts Reached" occurs due to rule violation, <u>no replacement or refund will be provided</u>.
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="section-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What <span class="text-gradient">Creators</span> Say</h2>
+            <div class="swiper reviewSwiper pb-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide h-auto">
+                        <div class="glass-card text-center d-flex flex-column h-100">
+                            <div class="neon-circle-icon mx-auto mb-3" style="width: 50px; height: 50px;"><i class="fa-solid fa-quote-left fs-6"></i></div>
+                            <p class="mb-4 text-silver">"Got the dual plan for me and my editor. Works perfectly and AR Services delivered credentials in just 5 minutes!"</p>
+                            <h5 class="mt-auto fw-bold text-white">- Ali H.</h5>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="glass-card text-center d-flex flex-column h-100">
+                            <div class="neon-circle-icon mx-auto mb-3" style="width: 50px; height: 50px;"><i class="fa-solid fa-quote-left fs-6"></i></div>
+                            <p class="mb-4 text-silver">"The single device plan is great on a budget. Followed the rules and haven't faced a single issue. Highly recommended."</p>
+                            <h5 class="mt-auto fw-bold text-white">- Sara Khan</h5>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="glass-card text-center d-flex flex-column h-100">
+                            <div class="neon-circle-icon mx-auto mb-3" style="width: 50px; height: 50px;"><i class="fa-solid fa-quote-left fs-6"></i></div>
+                            <p class="mb-4 text-silver">"Trusted seller. The auto-captions and pro effects are game changers for my reels. Best service ever."</p>
+                            <h5 class="mt-auto fw-bold text-white">- Usman R.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-4 position-relative"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Got <span class="text-gradient">Questions?</span></h2>
+            <div class="accordion mx-auto" id="faqAccordion" style="max-width: 800px;" data-aos="fade-up" data-aos-delay="100">
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How long is the validity?</button></h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-silver">Our plans typically run on a monthly subscription basis, giving you a full 30 days of premium access.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What happens if I login to a 2nd device on the single plan?</button></h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-silver">You will face a 'maximum attempts' error. As clearly stated in our policy, no replacements or refunds are provided if this rule is violated.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">How will I receive the account?</button></h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-silver">Once you submit your details via WhatsApp and complete the payment, credentials will be securely shared in the same chat within minutes.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 text-center" style="background: rgba(5,5,8,0.9); border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="container">
+            <h3 class="mb-4 font-weight-bold text-white" style="letter-spacing: 2px;">AR <span class="text-gradient">SERVICES</span></h3>
+            <div class="mb-4">
+                <a href="#" class="text-light me-4 fs-4"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-light me-4 fs-4"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/923351925662" target="_blank" class="text-light fs-4"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <p class="text-silver mb-0">&copy; 2026 AR SERVICES. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="floating-wa" data-bs-toggle="modal" data-bs-target="#whatsappModal" title="Order on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Interactive WhatsApp Form Modal -->
+    <div class="modal fade" id="whatsappModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fs-4 fw-bold text-gradient">Order CapCut Pro</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-4">
+                    <form id="orderForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="mb-3">
+                            <label class="form-label text-silver">Full Name</label>
+                            <input type="text" id="waName" class="form-control" required placeholder="Enter your name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-silver">Phone Number</label>
+                            <input type="tel" id="waPhone" class="form-control" required placeholder="(0345×××××)">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-silver">Email Address</label>
+                            <input type="email" id="waEmail" class="form-control" required placeholder="you@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-silver">Selected Package</label>
+                            <select id="waPackage" class="form-control">
+                                <option value="Not Selected">Choose a plan...</option>
+                                <option value="Single Device - Rs 400">Single Device - Rs 400</option>
+                                <option value="Dual Device - Rs 700">Dual Device - Rs 700</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-gradient w-100 py-3 fs-5">Continue to WhatsApp <i class="fa-brands fa-whatsapp ms-2"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts (Defer added to all scripts for faster initial load to prevent bugs) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize AOS
+            AOS.init({ 
+                duration: 600, 
+                once: true, 
+                offset: 50,    
+                easing: 'ease-in-out'
+            });
+
+            // Initialize Swiper
+            var swiper = new Swiper(".reviewSwiper", {
+                slidesPerView: 1, 
+                spaceBetween: 20, 
+                loop: true, 
+                autoplay: { delay: 3500, disableOnInteraction: false },
+                pagination: { el: ".swiper-pagination", clickable: true },
+                breakpoints: { 
+                    768: { slidesPerView: 2, spaceBetween: 30 }, 
+                    1024: { slidesPerView: 3, spaceBetween: 30 } 
+                }
+            });
+
+            // Close navbar menu on mobile after clicking link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if(navbarCollapse.classList.contains('show')){
+                        new bootstrap.Collapse(navbarCollapse).hide();
+                    }
+                });
+            });
+        });
+
+        // Modal Form Helper
+        function setPackage(pkgName) {
+            document.getElementById('waPackage').value = pkgName;
+        }
+
+        // WhatsApp Redirection
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('waName').value;
+            const phone = document.getElementById('waPhone').value;
+            const email = document.getElementById('waEmail').value;
+            const pkg = document.getElementById('waPackage').value;
+            
+            const message = `Hello AR SERVICES! I would like to purchase CapCut Pro.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Package:* ${pkg}`;
+            const waNumber = "923351925662"; 
+            window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
