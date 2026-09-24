@@ -123,8 +123,9 @@
         .section-alt { background-color: rgba(5, 5, 8, 0.8); }
         .section-title { text-align: center; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 50px; color: #fff; }
 
-        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 999; transition: transform 0.3s ease; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5); will-change: transform; }
-        .floating-wa:hover { transform: scale(1.1); color: white; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.7); }
+        /* Floating WhatsApp Button FIX: Added outline/text-decoration none */
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 999; transition: transform 0.3s ease; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5); text-decoration: none !important; outline: none !important; will-change: transform; }
+        .floating-wa:hover { transform: scale(1.1); color: white; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.7); text-decoration: none !important; }
 
         /* Tables & Accordions */
         .table-glass { color: #fff; background: transparent; }
@@ -144,8 +145,10 @@
         .alert-note { background: rgba(220, 53, 69, 0.12); border: 2px solid #ff3c3c; padding: 20px; border-radius: 12px; color: #fff; margin-top: 40px; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(220, 53, 69, 0.25); }
         .alert-note strong { color: #ff3c3c; font-size: 1.1rem; }
         
-        /* Swiper Fixes */
         .swiper-slide { height: auto; }
+
+        /* Tools Toggle */
+        .hidden-tool { display: none; }
     </style>
 </head>
 <body>
@@ -159,6 +162,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#more-tools">More Tools</a></li>
                     <li class="nav-item"><a class="nav-link" href="#how-it-works">Order Guide</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
@@ -173,7 +177,7 @@
 
     <section class="hero" id="home">
         <div class="container hero-content">
-            <div class="badge-premium mb-4" data-aos="fade-up">🚀 Pakistan's #1 Choice for Video Editors</div>
+            <div class="badge-premium mb-4" data-aos="fade-up">🚀 Pakistan's #1 Choice for Digital Tools</div>
             <h1 data-aos="fade-up" data-aos-delay="100">Unlock <span class="text-gradient">Premium</span> Editing Power</h1>
             
             <p class="lead text-silver mb-5 mx-auto" style="max-width: 680px;" data-aos="fade-up" data-aos-delay="200">
@@ -194,7 +198,7 @@
                     <div class="glass-card text-center">
                         <div class="neon-circle-icon"><i class="fa-solid fa-bolt"></i></div>
                         <h4 class="fw-bold">Instant Access</h4>
-                        <p class="text-silver mt-3">Get your CapCut Pro account details immediately via WhatsApp after order confirmation.</p>
+                        <p class="text-silver mt-3">Get your account details immediately via WhatsApp after order confirmation.</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
@@ -215,7 +219,164 @@
         </div>
     </section>
 
-    <section id="comparison">
+    <!-- NEW SECTION: More Tools -->
+    <section id="more-tools">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">More <span class="text-gradient">Premium Tools</span></h2>
+            <div class="row justify-content-center g-4" id="toolsContainer">
+                
+                <div class="col-12 col-md-6 col-lg-4 tool-card" data-aos="fade-up">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Gemini 18 Months</h3>
+                        <p class="text-silver mb-4">Active on Your Mail</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">999 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (5)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Gemini 18 Months - 999 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 tool-card" data-aos="fade-up">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Capcut Pro 1 Month</h3>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">649 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (10)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Capcut Pro 1 Month - 649 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 tool-card" data-aos="fade-up">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Capcut Pro 7 Days</h3>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">180 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (3)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Capcut Pro 7 Days - 180 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <!-- Hidden Tools -->
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Canva Edu</h3>
+                        <p class="text-silver mb-4">1 And 3 Months plan</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">149/199 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> Multiple Accounts</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Canva Edu - 149/199 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Surfshark VPN</h3>
+                        <p class="text-silver mb-4">Monthly</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">299 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (4)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Surfshark VPN - 299 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Netflix 1 month</h3>
+                        <p class="text-silver mb-4">4k Resolution</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">349 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (2)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Netflix 1 month 4k - 349 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">MS Office 365 Plus</h3>
+                        <p class="text-silver mb-4">12 months</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">999 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (20)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('MS Office 365 Plus - 999 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Adobe Express Premium</h3>
+                        <p class="text-silver mb-4">12 months</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">799 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (7)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Adobe Express Premium - 799 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Ilovepdf premium</h3>
+                        <p class="text-silver mb-4">12 months</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">499 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (10)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Ilovepdf premium - 499 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Quillbot</h3>
+                        <p class="text-silver mb-4">1 months</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">699 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (1)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Quillbot 1 months - 699 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">Super Duolingo</h3>
+                        <p class="text-silver mb-4">12 months</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">949 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (4)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('Super Duolingo 12 months - 949 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 hidden-tool">
+                    <div class="glass-card text-center d-flex flex-column h-100">
+                        <h3 class="mb-1 fw-bold text-white">YouTube Premium</h3>
+                        <p class="text-silver mb-4">3 months</p>
+                        <h2 class="my-4 text-gradient fs-1 fw-bold">1199 pkr</h2>
+                        <ul class="list-unstyled text-start mb-auto ms-3 text-silver">
+                            <li class="mb-2"><i class="fa-solid fa-check me-2 text-info"></i> In Stock (2)</li>
+                        </ul>
+                        <button class="btn btn-outline-light w-100 mt-4 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#whatsappModal" onclick="setPackage('YouTube Premium 3 months - 1199 pkr')">Select Tool</button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-5">
+                <button id="showMoreBtn" class="btn btn-gradient px-5 py-3 fs-5 rounded-pill">Show More Tools</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="section-alt">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Free vs <span class="text-gradient">CapCut Pro</span></h2>
             <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
@@ -238,7 +399,7 @@
         </div>
     </section>
 
-    <section id="how-it-works" class="section-alt">
+    <section id="how-it-works">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">How to <span class="text-gradient">Order?</span></h2>
             <div class="row g-4">
@@ -260,27 +421,28 @@
                     <div class="glass-card text-center">
                         <div class="neon-circle-icon mx-auto text-white fs-3 fw-bold">3</div>
                         <h4 class="fw-bold mt-2">Get Subscription</h4>
-                        <p class="text-silver mt-3">Receive your premium CapCut Pro login credentials instantly in the chat!</p>
+                        <p class="text-silver mt-3">Receive your premium login credentials instantly in the chat!</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section id="about">
+    <section id="about" class="section-alt">
         <div class="container text-center">
             <h2 class="section-title" data-aos="fade-up">Our <span class="text-gradient">Story</span></h2>
             <div class="glass-card mx-auto" style="max-width: 850px;" data-aos="fade-up" data-aos-delay="100">
                 <div class="neon-circle-icon mx-auto mb-4" style="width: 60px; height: 60px;"><i class="fa-solid fa-bullseye fs-4"></i></div>
                 <h3 class="fw-bold mb-3 text-white">Empowering Digital Creators</h3>
+                <!-- UPDATED: Shortened Story Content -->
                 <p class="text-silver fs-5 lh-lg mb-0">
-                    At AR SERVICES, our journey is rooted in a passion for digital marketing and content creation. We understand the high demands modern video editors and agencies face daily. That is why we specialize in providing seamless, reliable access to premium software subscriptions and cutting-edge digital tools like CapCut Pro. Our core mission is to empower creators with the premium resources they need to produce high-quality videos and ads, all backed by our trusted support.
+                    AR SERVICES was built to empower creators. We provide seamless, reliable access to premium software subscriptions and digital tools. Our mission is to equip you with the resources needed to produce outstanding content, backed by trusted support.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="features" class="section-alt">
+    <section id="features">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Why Upgrade to <span class="text-gradient">Pro?</span></h2>
             <div class="row g-4 align-items-center">
@@ -306,7 +468,7 @@
         </div>
     </section>
 
-    <section id="pricing">
+    <section id="pricing" class="section-alt">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Choose Your <span class="text-gradient">Plan</span></h2>
             <div class="row justify-content-center g-4">
@@ -351,7 +513,7 @@
     </section>
 
     <!-- Reviews (Google Drive Direct Fetching Fix for CodePen & GitHub) -->
-    <section id="reviews" class="section-alt">
+    <section id="reviews">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">What <span class="text-gradient">Creators</span> Say</h2>
             <div class="swiper reviewSwiper pb-5" data-aos="fade-up" data-aos-delay="100">
@@ -399,8 +561,8 @@
         </div>
     </section>
 
-    <!-- FAQs -->
-    <section id="faq">
+    <!-- RESTORED: FAQ Section -->
+    <section id="faq" class="section-alt">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Got <span class="text-gradient">Questions?</span></h2>
             <div class="accordion mx-auto" id="faqAccordion" style="max-width: 800px;" data-aos="fade-up" data-aos-delay="100">
@@ -449,7 +611,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-0">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fs-4 fw-bold text-gradient">Order CapCut Pro</h5>
+                    <h5 class="modal-title fs-4 fw-bold text-gradient">Order Premium Tools</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body pt-4">
@@ -470,8 +632,18 @@
                             <label class="form-label text-silver">Selected Package</label>
                             <select id="waPackage" class="form-control">
                                 <option value="Not Selected">Choose a plan...</option>
-                                <option value="Single Device - Rs 400">Single Device - Rs 400</option>
-                                <option value="Dual Device - Rs 700">Dual Device - Rs 700</option>
+                                <option value="Gemini 18 Months - 999 pkr">Gemini 18 Months - 999 pkr</option>
+                                <option value="Capcut Pro 1 Month - 649 pkr">Capcut Pro 1 Month - 649 pkr</option>
+                                <option value="Capcut Pro 7 Days - 180 pkr">Capcut Pro 7 Days - 180 pkr</option>
+                                <option value="Canva Edu - 149/199 pkr">Canva Edu - 149/199 pkr</option>
+                                <option value="Surfshark VPN - 299 pkr">Surfshark VPN - 299 pkr</option>
+                                <option value="Netflix 1 month 4k - 349 pkr">Netflix 1 month 4k - 349 pkr</option>
+                                <option value="MS Office 365 Plus - 999 pkr">MS Office 365 Plus - 999 pkr</option>
+                                <option value="Adobe Express Premium - 799 pkr">Adobe Express Premium - 799 pkr</option>
+                                <option value="Ilovepdf premium - 499 pkr">Ilovepdf premium - 499 pkr</option>
+                                <option value="Quillbot 1 months - 699 pkr">Quillbot 1 months - 699 pkr</option>
+                                <option value="Super Duolingo 12 months - 949 pkr">Super Duolingo 12 months - 949 pkr</option>
+                                <option value="YouTube Premium 3 months - 1199 pkr">YouTube Premium 3 months - 1199 pkr</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-gradient w-100 py-3 fs-5">Continue to WhatsApp <i class="fa-brands fa-whatsapp ms-2"></i></button>
@@ -481,35 +653,23 @@
         </div>
     </div>
 
-    <!-- Scripts (Defer added to all scripts for faster initial load) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     
     <script defer>
         document.addEventListener("DOMContentLoaded", function() {
-            // Initialize AOS
-            AOS.init({ 
-                duration: 600, 
-                once: true, 
-                offset: 50,    
-                easing: 'ease-in-out'
-            });
+            AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-in-out' });
 
-            // Initialize Swiper
             var swiper = new Swiper(".reviewSwiper", {
                 slidesPerView: 1, 
                 spaceBetween: 20, 
                 loop: true, 
                 autoplay: { delay: 3500, disableOnInteraction: false },
                 pagination: { el: ".swiper-pagination", clickable: true },
-                breakpoints: { 
-                    768: { slidesPerView: 2, spaceBetween: 30 }, 
-                    1024: { slidesPerView: 3, spaceBetween: 30 } 
-                }
+                breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }
             });
 
-            // Close navbar menu on mobile after clicking link
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     const navbarCollapse = document.getElementById('navbarNav');
@@ -518,22 +678,34 @@
                     }
                 });
             });
+
+            // Toggle Tools Visibility
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const hiddenTools = document.querySelectorAll('.hidden-tool');
+            let isExpanded = false;
+
+            showMoreBtn.addEventListener('click', function() {
+                isExpanded = !isExpanded;
+                hiddenTools.forEach(tool => {
+                    tool.style.display = isExpanded ? 'block' : 'none';
+                    // Re-trigger AOS animation for newly shown elements if needed
+                    if (isExpanded) {
+                         tool.classList.add('aos-animate');
+                    }
+                });
+                showMoreBtn.innerText = isExpanded ? 'Show Less Tools' : 'Show More Tools';
+            });
         });
 
-        // Modal Form Helper
-        function setPackage(pkgName) {
-            document.getElementById('waPackage').value = pkgName;
-        }
+        function setPackage(pkgName) { document.getElementById('waPackage').value = pkgName; }
 
-        // WhatsApp Redirection
         function sendToWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('waName').value;
             const phone = document.getElementById('waPhone').value;
             const email = document.getElementById('waEmail').value;
             const pkg = document.getElementById('waPackage').value;
-            
-            const message = `Hello AR SERVICES! I would like to purchase CapCut Pro.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Package:* ${pkg}`;
+            const message = `Hello AR SERVICES! I would like to purchase a subscription.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Package:* ${pkg}`;
             const waNumber = "923351925662"; 
             window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
         }
